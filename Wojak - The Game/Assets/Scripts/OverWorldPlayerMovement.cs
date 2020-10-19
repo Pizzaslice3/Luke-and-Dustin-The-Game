@@ -13,41 +13,50 @@ public class OverWorldPlayerMovement : MonoBehaviour
     public Sprite doomerFront;
     public Sprite doomerBack;
 
+    public bool canMove = true;
+
+    public LevelLoader LL;
+
     // Start is called before the first frame update
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
+        LL = GameObject.Find("LevelLoader").GetComponent<LevelLoader>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        change = Vector3.zero;
-        change.x = Input.GetAxisRaw("Horizontal");
-        change.y = Input.GetAxisRaw("Vertical");
+        if (canMove)
+        {
+            change = Vector3.zero;
+            change.x = Input.GetAxisRaw("Horizontal");
+            change.y = Input.GetAxisRaw("Vertical");
 
-        if(Input.GetAxisRaw("Horizontal") == -1)
-        {
-            gameObject.GetComponent<SpriteRenderer>().flipX = true;
-        }
-        if (Input.GetAxisRaw("Horizontal") == 1)
-        {
-            gameObject.GetComponent<SpriteRenderer>().flipX = false;
-        }
+            if (Input.GetAxisRaw("Horizontal") == -1)
+            {
+                gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            }
+            if (Input.GetAxisRaw("Horizontal") == 1)
+            {
+                gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            }
 
-        if(Input.GetAxisRaw("Vertical") == -1)
-        {
-            gameObject.GetComponent<SpriteRenderer>().sprite = doomerFront;
-        }
+            if (Input.GetAxisRaw("Vertical") == -1)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = doomerFront;
+            }
 
-        if (Input.GetAxisRaw("Vertical") == 1)
-        {
-            gameObject.GetComponent<SpriteRenderer>().sprite = doomerBack;
-        }
+            if (Input.GetAxisRaw("Vertical") == 1)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = doomerBack;
+            }
 
-        if (change != Vector3.zero)
-        {
-            MoveCharacter();
+            if (change != Vector3.zero)
+            {
+                MoveCharacter();
+            }
+
         }
 
     }
@@ -64,7 +73,8 @@ public class OverWorldPlayerMovement : MonoBehaviour
     {
         if(col.CompareTag("Door"))
         {
-            SceneManager.LoadScene(1);
+            canMove = false;
+            LL.LoadNextLevel();
         }
     }
 }

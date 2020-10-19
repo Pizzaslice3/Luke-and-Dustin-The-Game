@@ -3,7 +3,9 @@ guid: 4107d32df22213447a91f9887819c780
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - doomerBack: {fileID: 21300000, guid: ffc496117b3f8da4994c8e20fe3c0995, type: 3}
+  - doomerFront: {fileID: 21300000, guid: 6797f7e39de64f540b6d39251a66c3d5, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
