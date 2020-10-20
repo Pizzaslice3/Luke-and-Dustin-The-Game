@@ -17,11 +17,28 @@ public class OverWorldPlayerMovement : MonoBehaviour
 
     public LevelLoader LL;
 
+    public GameObject player;
+
+    public SpawnPlayerOverWorld SPOW;
+
+
     // Start is called before the first frame update
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
+        player = this.gameObject;
         LL = GameObject.Find("LevelLoader").GetComponent<LevelLoader>();
+        SPOW = GameObject.Find("OverWorld Manager").GetComponent<SpawnPlayerOverWorld>();
+        PlayerSpawnStart(SPOW.playerSpawnPos, SPOW.globalIsFacingForward);
+
+        
+    }
+
+
+    public void PlayerSpawnStart(Vector3 spawnPos, bool isFacingForward)
+    {
+        player.transform.position = spawnPos;
+        player.GetComponent<SpriteRenderer>().flipX = isFacingForward;
     }
 
     // Update is called once per frame
@@ -74,7 +91,7 @@ public class OverWorldPlayerMovement : MonoBehaviour
         if(col.CompareTag("Door"))
         {
             canMove = false;
-            LL.LoadNextLevel();
+            LL.LoadNextLevel(1);
         }
     }
 }

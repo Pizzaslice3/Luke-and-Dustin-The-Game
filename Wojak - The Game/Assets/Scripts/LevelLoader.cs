@@ -9,9 +9,9 @@ public class LevelLoader : MonoBehaviour
 
     public float transitionTime = 1f;
 
-    public void LoadNextLevel()
+    public void LoadNextLevel(int levelIndex)
     {
-        StartCoroutine(LoadLevel(1));
+        StartCoroutine(LoadLevel(levelIndex));
     }
 
     IEnumerator LoadLevel(int levelIndex)

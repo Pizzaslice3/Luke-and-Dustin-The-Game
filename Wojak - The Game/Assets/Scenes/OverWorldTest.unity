@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 265884907}
   - component: {fileID: 265884908}
   m_Layer: 0
-  m_Name: Wojak-Player
+  m_Name: Wojak Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -326,6 +326,8 @@ MonoBehaviour:
   doomerBack: {fileID: 21300000, guid: ffc496117b3f8da4994c8e20fe3c0995, type: 3}
   canMove: 1
   LL: {fileID: 0}
+  player: {fileID: 0}
+  SPOW: {fileID: 0}
 --- !u!61 &265884908
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -748,6 +750,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1542622594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1542622596}
+  - component: {fileID: 1542622595}
+  m_Layer: 0
+  m_Name: OverWorld Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1542622595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542622594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc89118713e0f246b4c6414eb51b266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSpawnPos: {x: 0, y: 0, z: 0}
+  globalIsFacingForward: 0
+  ID: 
+--- !u!4 &1542622596
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542622594}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7425681275467353049
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -762,7 +810,7 @@ PrefabInstance:
     - target: {fileID: 7203454308355330760, guid: c7fe65ed0a5186f4ba6bba8c286b799d,
         type: 3}
       propertyPath: transitionTime
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7425681273897658044, guid: c7fe65ed0a5186f4ba6bba8c286b799d,
         type: 3}
