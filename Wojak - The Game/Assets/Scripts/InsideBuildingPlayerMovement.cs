@@ -18,7 +18,6 @@ public class InsideBuildingPlayerMovement : MonoBehaviour
     public bool canMove = true;
 
 
-    public SpawnPlayerOverWorld SPOW;
 
 
     // Start is called before the first frame update
